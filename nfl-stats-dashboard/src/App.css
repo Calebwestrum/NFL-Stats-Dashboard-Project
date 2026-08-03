@@ -1,0 +1,42 @@
+#root{
+   max-width: 900px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+main{
+  text-align: center;
+}
+
+input{
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  margin: 20px 0;
+  font-size: 1rem;
+}
+
+.player-card{
+  padding: 25px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.stats{
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stats div{
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.stats h3{
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
