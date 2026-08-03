@@ -1,27 +1,29 @@
 import "./App.css";
+import {useState} from 'react';
+import players from './data/players';
 
 function App(){
-  const player = {
-    name: "Josh Allen",
-    team: "Buffalo Bills",
-    position: "QB",
-    passingYards: 3668,
-    passingTouchdowns: 25,
-    interceptions: 10,
-  }
+  const [search, setSearch] = useState("");
+
+  const filteredPlayers = players.filter((player) =>
+    player.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return(
     <main>
       <h1>NFL Stats Dashboard</h1>
 
-      <input type="text" placeholder="Search for a player..."></input>
-      <section className="player-card">
+      <input type="text" placeholder="Search for a player..." value={search}
+              onChange={(event) => setSearch(event.target.value)}></input>
+
+      {filteredPlayers.map((player) => (   
+      <section className="player-card" key={player.id}>
         <h2>{player.name}</h2>
         <p>{player.team} - {player.position}</p>
 
         <div className="stats">
           <div>
-            <h3>{player.passingYards}</h3>
+            <h3>{player.passingYards.toLocaleString()}</h3>
             <p>Passing Yards</p>
           </div>
 
@@ -36,6 +38,12 @@ function App(){
           </div>
         </div>
       </section>
+      ))}
+
+      {filteredPlayers.length === 0 && (
+        <p>No players found.</p>
+      )}
+
     </main>
   )
 }
