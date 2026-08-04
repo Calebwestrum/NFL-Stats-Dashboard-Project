@@ -1,6 +1,7 @@
 import "./App.css";
 import {useState} from 'react';
 import players from './data/players';
+import PlayerCard from "./components/PlayerCard";
 
 function App(){
   const [search, setSearch] = useState("");
@@ -16,28 +17,8 @@ function App(){
       <input type="text" placeholder="Search for a player..." value={search}
               onChange={(event) => setSearch(event.target.value)}></input>
 
-      {filteredPlayers.map((player) => (   
-      <section className="player-card" key={player.id}>
-        <h2>{player.name}</h2>
-        <p>{player.team} - {player.position}</p>
-
-        <div className="stats">
-          <div>
-            <h3>{player.passingYards.toLocaleString()}</h3>
-            <p>Passing Yards</p>
-          </div>
-
-          <div>
-            <h3>{player.passingTouchdowns}</h3>
-            <p>Passing TDs</p>
-          </div>
-
-          <div>
-            <h3>{player.interceptions}</h3>
-            <p>Interceptions</p>
-          </div>
-        </div>
-      </section>
+      {filteredPlayers.map((player) => (
+        <PlayerCard key={player.id} player={player}></PlayerCard>
       ))}
 
       {filteredPlayers.length === 0 && (
