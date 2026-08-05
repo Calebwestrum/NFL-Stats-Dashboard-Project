@@ -16,12 +16,12 @@ function PlayerCard({player}){
 
                         <div>
                             <h3>{player.passingTouchdowns}</h3>
-                            <p>Passing Yards</p>
+                            <p>Passing TDs</p>
                         </div>
 
                         <div>
                             <h3>{player.interceptions}</h3>
-                            <p>Passing Yards</p>
+                            <p>Interceptions</p>
                         </div>
                     </>
                 )}

@@ -52,6 +52,7 @@ select{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 30px;
 }
@@ -68,4 +69,12 @@ select{
 }
 .filters select{
   min-width: 150px;
+}
+.filters button{
+  height: 45px;
+  padding: 0 16px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
 }
