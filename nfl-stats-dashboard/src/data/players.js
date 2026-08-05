@@ -36,6 +36,32 @@ const players = [
         passingTouchdowns: 31,
         interceptions: 8,
     },
+    {
+        id: 5,
+        name: "Bijan Robinson",
+        team: "Atlanta Falcons",
+        position: "RB",
+        rushingYards: 1478,
+        rushingTouchdowns: 7,
+        receivingYards: 820,
+        receivingTouchdowns: 4,
+    },
+    {
+        id: 6,
+        name: "Justin Jefferson",
+        team: "Minnesota Vikings",
+        position: "WR",
+        receivingYards: 1048,
+        receivingTouchdowns: 2,
+    },
+    {
+        id: 7,
+        name: "Trey McBride",
+        team: "Arizona Cardinals",
+        position: "TE",
+        receivingYards: 1239,
+        receivingTouchdowns: 11,
+    },
 ];
 
 export default players;

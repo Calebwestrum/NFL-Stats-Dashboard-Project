@@ -7,20 +7,63 @@ function PlayerCard({player}){
             <p>{player.team} - {player.position}</p>
 
             <div className="stats">
-                <div>
-                    <h3>{player.passingYards.toLocaleString()}</h3>
-                    <p>Passing Yards</p>
-                </div>
+                {player.position === "QB" && (
+                    <>
+                        <div>
+                            <h3>{player.passingYards.toLocaleString()}</h3>
+                            <p>Passing Yards</p>
+                        </div>
 
-                <div>
-                    <h3>{player.passingTouchdowns}</h3>
-                    <p>Passing Yards</p>
-                </div>
+                        <div>
+                            <h3>{player.passingTouchdowns}</h3>
+                            <p>Passing Yards</p>
+                        </div>
 
-                <div>
-                    <h3>{player.interceptions}</h3>
-                    <p>Passing Yards</p>
-                </div>
+                        <div>
+                            <h3>{player.interceptions}</h3>
+                            <p>Passing Yards</p>
+                        </div>
+                    </>
+                )}
+
+                {player.position === "RB" && (
+                    <>
+                        <div>
+                            <h3>{player.rushingYards.toLocaleString()}</h3>
+                            <p>Rushing Yards</p>
+                        </div>
+
+                        <div>
+                            <h3>{player.rushingTouchdowns}</h3>
+                            <p>Rushing TDs</p>
+                        </div>
+
+                        <div>
+                            <h3>{player.receivingYards.toLocaleString()}</h3>
+                            <p>Receiving Yards</p>
+                        </div>
+
+                        <div>
+                            <h3>{player.rushingTouchdowns}</h3>
+                            <p>Receiving TDs</p>
+                        </div>
+                    </>
+                )}
+
+                {(player.position === "WR" || player.position === "TE") && (
+                    <>
+                        <div>
+                            <h3>{player.receivingYards.toLocaleString()}</h3>
+                            <p>Receiving Yards</p>
+                        </div>
+
+                        <div>
+                            <h3>{player.receivingTouchdowns}</h3>
+                            <p>Receiving TDs</p>
+                        </div>
+
+                    </>
+                )}
             </div>
         </section>
     )

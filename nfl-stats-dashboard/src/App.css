@@ -40,3 +40,32 @@ input{
   font-size: 2rem;
   margin-bottom: 5px;
 }
+
+select{
+  padding: 12px;
+  margin-left: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
+.filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.filters input, .filters select{
+  height: 45px;
+  padding: 0 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.filters input{
+  width: 300px;
+}
+.filters select{
+  min-width: 150px;
+}
