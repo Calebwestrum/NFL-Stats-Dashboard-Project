@@ -1,6 +1,6 @@
 import "./App.css";
 import {useState} from 'react';
-import players from './data/players';
+import players from './data/players.json';
 import PlayerCard from "./components/PlayerCard";
 
 function App(){
