@@ -43,6 +43,9 @@ input{
 }
 
 .player-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 20px;
 }
 
@@ -58,11 +61,14 @@ input{
 
 .stats {
   display: flex;
+  justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .stat-box {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 15px;
   background: #f7f7f7;
   border: 1px solid #e1e1e1;
@@ -145,4 +151,38 @@ select{
 .position-badge.te {
   background-color: #ffedd5;
   color: #c2410c;
+}
+
+.player-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+.team-logo {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+@media (max-width: 700px) {
+  .stats {
+    flex-wrap: wrap;
+  }
+  .stat-box {
+    flex: 1 1 40%;
+  }
+  .filters {
+    flex-direction: column;
+  }
+  .filters input,
+  .filters select,
+  .filters button {
+    width: 100%;
+    max-width: 400px;
+  }
 }
