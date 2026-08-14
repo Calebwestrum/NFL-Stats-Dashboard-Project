@@ -1,4 +1,3 @@
-
 [
     {
         "id": 1,
@@ -9,7 +8,8 @@
         "logo": "bills.png",
         "passingYards": 3668,
         "passingTouchdowns": 25,
-        "interceptions": 10
+        "interceptions": 10,
+        "totalTouchdowns": 25
     },
     {
         "id": 2,
@@ -18,7 +18,10 @@
         "position": "QB",
         "passingYards": 3942,
         "passingTouchdowns": 27,
-        "interceptions": 7
+        "interceptions": 7,
+        "image": "caleb-williams.jpg",
+        "logo": "bears.png",
+        "totalTouchdowns": 27
     },
     {
         "id": 3,
@@ -27,7 +30,10 @@
         "position": "QB",
         "passingYards": 4007,
         "passingTouchdowns": 29,
-        "interceptions": 12
+        "interceptions": 12,
+        "image": "trevor-lawrence.jpg",
+        "logo": "jaguars.png",
+        "totalTouchdowns": 29
     },
     {
         "id": 4,
@@ -36,7 +42,10 @@
         "position": "QB",
         "passingYards": 4394,
         "passingTouchdowns": 31,
-        "interceptions": 8
+        "interceptions": 8,
+        "image": "drake-maye.jpg",
+        "logo": "patriots.png",
+        "totalTouchdowns": 31
     },
     {
         "id": 5,
@@ -48,7 +57,8 @@
         "rushingYards": 1478,
         "rushingTouchdowns": 7,
         "receivingYards": 820,
-        "receivingTouchdowns": 4
+        "receivingTouchdowns": 4,
+        "totalTouchdowns": 11
     },
     {
         "id": 6,
@@ -58,7 +68,8 @@
         "image": "justin-jefferson.jpg",
         "logo": "vikings.png",
         "receivingYards": 1048,
-        "receivingTouchdowns": 2
+        "receivingTouchdowns": 2,
+        "totalTouchdowns": 2
     },
     {
         "id": 7,
@@ -68,7 +79,8 @@
         "image": "trey-mcbride.jpg",
         "logo": "cardinals.png",
         "receivingYards": 1239,
-        "receivingTouchdowns": 11
+        "receivingTouchdowns": 11,
+        "totalTouchdowns": 11
     },
     {
         "id": 8,
@@ -76,7 +88,10 @@
         "team": "Minnesota Vikings",
         "position": "WR",
         "receivingYards": 610,
-        "receivingTouchdowns": 3
+        "receivingTouchdowns": 3,
+        "image": "jordan-addison.jpg",
+        "logo": "vikings.png",
+        "totalTouchdowns": 3
     },
     {
         "id": 9,
@@ -84,7 +99,10 @@
         "team": "Atlanta Falcons",
         "position": "WR",
         "receivingYards": 919,
-        "receivingTouchdowns": 7
+        "receivingTouchdowns": 7,
+        "image": "drake-london.jpg",
+        "logo": "falcons.png",
+        "totalTouchdowns": 7
     },
     {
         "id": 10,
@@ -92,7 +110,10 @@
         "team": "Houston Texans",
         "position": "WR",
         "receivingYards": 1117,
-        "receivingTouchdowns": 6
+        "receivingTouchdowns": 6,
+        "image": "nico-collins.jpg",
+        "logo": "texans.png",
+        "totalTouchdowns": 6
     },
     {
         "id": 11,
@@ -100,7 +121,10 @@
         "team": "Baltimore Ravens",
         "position": "WR",
         "receivingYards": 1211,
-        "receivingTouchdowns": 5
+        "receivingTouchdowns": 5,
+        "image": "zay-flowers.jpg",
+        "logo": "ravens.png",
+        "totalTouchdowns": 5
     },
     {
         "id": 12,
@@ -110,7 +134,10 @@
         "rushingYards": 1595,
         "rushingTouchdowns": 16,
         "receivingYards": 150,
-        "receivingTouchdowns": 0
+        "receivingTouchdowns": 0,
+        "image": "derrick-henry.jpg",
+        "logo": "ravens.png",
+        "totalTouchdowns": 16
     },
     {
         "id": 13,
@@ -120,7 +147,10 @@
         "rushingYards": 1065,
         "rushingTouchdowns": 4,
         "receivingYards": 350,
-        "receivingTouchdowns": 1
+        "receivingTouchdowns": 1,
+        "image": "breece-hall.jpg",
+        "logo": "jets.png",
+        "totalTouchdowns": 5
     },
     {
         "id": 14,
@@ -130,7 +160,10 @@
         "rushingYards": 1019,
         "rushingTouchdowns": 6,
         "receivingYards": 437,
-        "receivingTouchdowns": 5
+        "receivingTouchdowns": 5,
+        "image": "chase-brown.jpg",
+        "logo": "bengals.png",
+        "totalTouchdowns": 11
     },
     {
         "id": 15,
@@ -140,7 +173,10 @@
         "rushingYards": 958,
         "rushingTouchdowns": 6,
         "receivingYards": 333,
-        "receivingTouchdowns": 2
+        "receivingTouchdowns": 2,
+        "image": "jaylen-warren.jpg",
+        "logo": "steelers.png",
+        "totalTouchdowns": 8
     },
     {
         "id": 16,
@@ -148,7 +184,10 @@
         "team": "Dallas Cowboys",
         "position": "TE",
         "receivingYards": 600,
-        "receivingTouchdowns": 8
+        "receivingTouchdowns": 8,
+        "image": "jake-ferguson.jpg",
+        "logo": "cowboys.png",
+        "totalTouchdowns": 8
     },
     {
         "id": 17,
@@ -156,7 +195,10 @@
         "team": "Indianapolis Colts",
         "position": "TE",
         "receivingYards": 817,
-        "receivingTouchdowns": 4
+        "receivingTouchdowns": 4,
+        "image": "tyler-warren.jpg",
+        "logo": "colts.png",
+        "totalTouchdowns": 4
     },
     {
         "id": 18,
@@ -164,7 +206,10 @@
         "team": "Chicago Bears",
         "position": "TE",
         "receivingYards": 713,
-        "receivingTouchdowns": 6
+        "receivingTouchdowns": 6,
+        "image": "colston-loveland.jpg",
+        "logo": "bears.png",
+        "totalTouchdowns": 11
     },
     {
         "id": 19,
@@ -172,7 +217,10 @@
         "team": "Philadelphia Eagles",
         "position": "TE",
         "receivingYards": 591,
-        "receivingTouchdowns": 11
+        "receivingTouchdowns": 11,
+        "image": "dallas-goedert.jpg",
+        "logo": "eagles.png",
+        "totalTouchdowns": 11
     },
     {
         "id": 20,
@@ -181,6 +229,9 @@
         "position": "QB",
         "passingYards": 4048,
         "passingTouchdowns": 25,
-        "interceptions": 14
+        "interceptions": 14,
+        "image": "sam-darnold.jpg",
+        "logo": "seahawks.png",
+        "totalTouchdowns": 25
     }
 ]

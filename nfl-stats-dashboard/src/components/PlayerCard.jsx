@@ -1,26 +1,4 @@
-import joshAllen from "../assets/players/josh-allen.jpg";
-import bijanRobinson from "../assets/players/bijan-robinson.jpg";
-import justinJefferson from "../assets/players/justin-jefferson.jpg";
-import treyMcBride from "../assets/players/trey-mcbride.jpg";
 
-import billsLogo from "../assets/teams/bills.png";
-import falconsLogo from "../assets/teams/falcons.png";
-import vikingsLogo from "../assets/teams/vikings.png";
-import cardinalsLogo from "../assets/teams/cardinals.png";
-
-const playerImages = {
-    "josh-allen.jpg": joshAllen,
-    "bijan-robinson.jpg": bijanRobinson,
-    "justin-jefferson.jpg": justinJefferson,
-    "trey-mcbride.jpg": treyMcBride,
-};
-
-const teamLogos = {
-    "bills.png": billsLogo,
-    "falcons.png": falconsLogo,
-    "vikings.png": vikingsLogo,
-    "cardinals.png": cardinalsLogo,
-};
 
 function PlayerCard({player}){
     return(
@@ -28,7 +6,7 @@ function PlayerCard({player}){
         <div className="player-header">
             {player.image && (
                 <img
-                    src={playerImages[player.image]}
+                    src={`/players/${player.image}`}
                     alt={player.name}
                     className="player-image"
                 />
@@ -38,7 +16,7 @@ function PlayerCard({player}){
                 <p>
                     {player.logo && (
                         <img
-                            src={teamLogos[player.logo]}
+                            src={`/teams/${player.logo}`}
                             alt={`${player.team} logo`}
                             className="team-logo"
                         />

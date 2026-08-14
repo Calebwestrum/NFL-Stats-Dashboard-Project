@@ -1,6 +1,6 @@
 import "./App.css";
 import {useState} from 'react';
-import players from './data/players.json';
+import players from './data/processed_players.json';
 import PlayerCard from "./components/PlayerCard";
 
 function App(){
@@ -22,18 +22,8 @@ function App(){
       return a.name.localeCompare(b.name);
     }
 
-    if (sortBy === "touchdowns"){
-      const aTouchdowns = 
-        (a.passingTouchdowns || 0) +
-        (a.rushingTouchdowns || 0) +
-        (a.receivingTouchdowns || 0);
-
-      const bTouchdowns = 
-        (b.passingTouchdowns || 0) +
-        (b.rushingTouchdowns || 0) +
-        (b.receivingTouchdowns || 0);  
-
-      return bTouchdowns - aTouchdowns;
+    if (sortBy === "touchdowns") {
+      return b.totalTouchdowns - a.totalTouchdowns;
     }
 
     return (b[sortBy] || 0) - (a[sortBy] || 0);
