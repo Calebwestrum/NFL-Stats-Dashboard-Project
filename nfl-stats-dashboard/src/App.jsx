@@ -73,6 +73,10 @@ function App(){
 
       </div>
 
+      <p className="player-count">
+        Showing {sortedPlayers.length} players
+      </p>
+
       {sortedPlayers.map((player) => (
         <PlayerCard key={player.id} player={player}></PlayerCard>
       ))}

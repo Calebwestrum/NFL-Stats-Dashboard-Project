@@ -1,65 +1,51 @@
+import csv
 import json
 
-team_logos = {
-    "Buffalo Bills": "bills.png",
-    "Chicago Bears": "bears.png",
-    "Jacksonville Jaguars": "jaguars.png",
-    "New England Patriots": "patriots.png",
-    "Atlanta Falcons": "falcons.png",
-    "Minnesota Vikings": "vikings.png",
-    "Arizona Cardinals": "cardinals.png",
-    "Houston Texans": "texans.png",
-    "Baltimore Ravens": "ravens.png",
-    "New York Jets": "jets.png",
-    "Cincinnati Bengals": "bengals.png",
-    "Pittsburgh Steelers": "steelers.png",
-    "Dallas Cowboys": "cowboys.png",
-    "Indianapolis Colts": "colts.png",
-    "Philadelphia Eagles": "eagles.png",
-    "Seattle Seahawks": "seahawks.png",
-}
+INPUT_FILE = "player_stats_2025.csv"
+OUTPUT_FILE = "../src/data/processed_players.json"
 
-with open("../src/data/players.json", "r") as file:
-    players = json.load(file)
+players = []
 
-valid_positions = {"QB", "RB", "WR", "TE"}
+with open(INPUT_FILE, "r", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
 
-for player in players:
-    errors = []
+    for row in reader:
+        # Only use regular-season offensive players
+        if row["season_type"] != "REG":
+            continue
 
-    if not player.get("name"):
-        errors.append("missing name")
+        if row["position"] not in {"QB", "RB", "WR", "TE"}:
+            continue
 
-    if not player.get("team"):
-        errors.append("missing team")
+        player = {
+            "id": row["player_id"],
+            "name": row["player_name"],
+            "team": row["recent_team"],
+            "position": row["position"],
+            "image": row["headshot_url"],
 
-    if player.get("position") not in valid_positions:
-        errors.append("invalid position")
+            "passingYards": int(float(row["passing_yards"] or 0)),
+            "passingTouchdowns": int(float(row["passing_tds"] or 0)),
+            "interceptions": int(float(row["passing_interceptions"] or 0)),
 
-    if player.get("team") not in team_logos:
-        errors.append("unknown team")
+            "rushingYards": int(float(row["rushing_yards"] or 0)),
+            "rushingTouchdowns": int(float(row["rushing_tds"] or 0)),
 
-    if errors:
-        print(f"ERROR: {player.get('name', 'Unknown Player')}")
-        for error in errors:
-            print(f"  - {error}")
+            "receivingYards": int(float(row["receiving_yards"] or 0)),
+            "receivingTouchdowns": int(float(row["receiving_tds"] or 0)),
+        }
 
-    player["image"] = player["name"].lower().replace(" ", "-") + ".jpg"
-    player["logo"] = team_logos[player["team"]]
-    
-    
-    passing_tds = player.get("passingTouchdowns", 0)
-    rushing_tds = player.get("rushingTouchdowns", 0)
-    receiving_tds = player.get("receivingTouchdowns", 0)
+        player["totalTouchdowns"] = (
+            player["passingTouchdowns"]
+            + player["rushingTouchdowns"]
+            + player["receivingTouchdowns"]
+        )
 
-    player["totalTouchdowns"] = (
-        passing_tds +
-        rushing_tds +
-        receiving_tds
-    )
+        players.append(player)
 
-with open("../src/data/processed_players.json", "w") as file:
+
+with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
     json.dump(players, file, indent=4)
 
 print(f"Processed {len(players)} players")
-print("Created processed_players.json")
+print(f"Created {OUTPUT_FILE}")

@@ -186,3 +186,10 @@ select{
     max-width: 400px;
   }
 }
+
+.player-count {
+  margin: 20px 0;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: left;
+}

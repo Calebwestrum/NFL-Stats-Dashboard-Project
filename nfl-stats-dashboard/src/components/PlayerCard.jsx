@@ -6,7 +6,7 @@ function PlayerCard({player}){
         <div className="player-header">
             {player.image && (
                 <img
-                    src={`/players/${player.image}`}
+                    src={player.image}
                     alt={player.name}
                     className="player-image"
                 />
@@ -14,13 +14,6 @@ function PlayerCard({player}){
             <div>
                 <h2>{player.name}</h2>
                 <p>
-                    {player.logo && (
-                        <img
-                            src={`/teams/${player.logo}`}
-                            alt={`${player.team} logo`}
-                            className="team-logo"
-                        />
-                    )}
                     {player.team}
                     <span className={`position-badge ${player.position.toLowerCase()}`}>
                         {player.position}
