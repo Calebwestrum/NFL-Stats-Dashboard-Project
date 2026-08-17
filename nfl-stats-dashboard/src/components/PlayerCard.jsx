@@ -1,6 +1,6 @@
 
 
-function PlayerCard({player}){
+function PlayerCard({player, onCompare}){
     return(
     <section className={`player-card ${player.position.toLowerCase()}`}>
         <div className="player-header">
@@ -80,6 +80,16 @@ function PlayerCard({player}){
             </>
         )}
         </div>
+
+        <button
+            className="compare-button"
+            onClick={() => {
+                console.log("Compare clicked:", player.name);
+                onCompare(player);
+            }}
+        >
+            Compare
+        </button>
     </section>
     );
 }

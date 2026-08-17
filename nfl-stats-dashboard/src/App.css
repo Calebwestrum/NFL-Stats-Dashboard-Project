@@ -193,3 +193,32 @@ select{
   color: #666;
   text-align: left;
 }
+
+.player-comparison {
+  margin: 30px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.player-comparison h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.comparison-players {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.comparison-player {
+  flex: 1;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.comparison-player h3 {
+  margin-top: 0;
+}

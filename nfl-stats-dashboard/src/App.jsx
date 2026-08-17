@@ -2,12 +2,14 @@ import "./App.css";
 import {useState} from 'react';
 import players from './data/processed_players.json';
 import PlayerCard from "./components/PlayerCard";
+import PlayerComparison from "./components/PlayerComparison";
 
 function App(){
   const [search, setSearch] = useState("");
   const [position, setPosition] = useState("All");
   const [team, setTeam] = useState("All");
   const [sortBy, setSortBy] = useState("name");
+  const [comparePlayers, setComparePlayers] = useState([]);
 
   const teams = ["All",... new Set(players.map((player) => player.team))];
 
@@ -34,6 +36,18 @@ function App(){
     setPosition("All");
     setTeam("All");
     setSortBy("name");
+  }
+
+  function handleCompare(player){
+    setComparePlayers((current) => {
+      if (current.some((p) => p.id === player.id)){
+        return current;
+      }
+      if (current.length >= 2){
+        return current;
+      }
+      return [...current, player];
+    });
   }
 
   return(
@@ -73,15 +87,21 @@ function App(){
 
       </div>
 
+      <PlayerComparison players={comparePlayers}/>
+
       <p className="player-count">
         Showing {sortedPlayers.length} players
       </p>
 
       {sortedPlayers.map((player) => (
-        <PlayerCard key={player.id} player={player}></PlayerCard>
+        <PlayerCard
+          key={player.id}
+          player={player}
+          onCompare={handleCompare}
+        />
       ))}
 
-      {filteredPlayers.length === 0 && (
+      {sortedPlayers.length === 0 && (
         <p>No players found.</p>
       )}
 
