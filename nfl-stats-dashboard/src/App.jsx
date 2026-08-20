@@ -50,6 +50,12 @@ function App(){
     });
   }
 
+  function handleRemove(playerId) {
+    setComparePlayers((current) =>
+        current.filter((player) => player.id !== playerId)
+    );
+  }
+
   return(
     <main>
       <h1>NFL Stats Dashboard</h1>
@@ -87,7 +93,10 @@ function App(){
 
       </div>
 
-      <PlayerComparison players={comparePlayers}/>
+      <PlayerComparison
+        players={comparePlayers}
+        onRemove={handleRemove}
+      />
 
       <p className="player-count">
         Showing {sortedPlayers.length} players

@@ -222,3 +222,45 @@ select{
 .comparison-player h3 {
   margin-top: 0;
 }
+
+.player-comparison {
+  margin: 30px 0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.player-comparison h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+.comparison-header,
+.comparison-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.comparison-header {
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.comparison-header h3 {
+  text-align: center;
+}
+
+.comparison-row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comparison-row p {
+  margin: 0;
+}
+
+.comparison-row p:not(:first-child) {
+  text-align: center;
+}
