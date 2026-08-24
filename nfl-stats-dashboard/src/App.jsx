@@ -45,6 +45,7 @@ function App(){
   const [team, setTeam] = useState("All");
   const [sortBy, setSortBy] = useState("name");
   const [comparePlayers, setComparePlayers] = useState([]);
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
 
   useEffect(() => {
   const params = new URLSearchParams();
@@ -112,9 +113,36 @@ function App(){
     );
   }
 
+  async function handlePlayerClick(playerId) {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/players/${playerId}`
+      );
+
+      const data = await response.json();
+
+      setSelectedPlayer(data);
+    } catch (error) {
+      console.error("Error fetching player:", error);
+    }
+  }
+
   return(
     <main>
       <h1>NFL Stats Dashboard</h1>
+
+      {selectedPlayer && (
+        <section className="selected-player">
+          <h2>{selectedPlayer.name}</h2>
+          <p>
+            {selectedPlayer.team} - {selectedPlayer.position}
+          </p>
+          <p>Passing Yards: {selectedPlayer.passingYards}</p>
+          <p>Rushing Yards: {selectedPlayer.rushingYards}</p>
+          <p>Receiving Yards: {selectedPlayer.receivingYards}</p>
+          <p>Total Touchdowns: {selectedPlayer.totalTouchdowns}</p>
+        </section>
+      )}
 
       {loading && <p>Loading players...</p>}
 
@@ -165,6 +193,7 @@ function App(){
           key={player.id}
           player={player}
           onCompare={handleCompare}
+          onPlayerClick={handlePlayerClick}
         />
       ))}
 

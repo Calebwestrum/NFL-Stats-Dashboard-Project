@@ -1,6 +1,6 @@
 
 
-function PlayerCard({player, onCompare}){
+function PlayerCard({player, onCompare, onPlayerClick}){
     return(
     <section className={`player-card ${player.position.toLowerCase()}`}>
         <div className="player-header">
@@ -12,7 +12,12 @@ function PlayerCard({player, onCompare}){
                 />
             )}
             <div>
-                <h2>{player.name}</h2>
+                <h2
+                    className="player-name"
+                    onClick={() => onPlayerClick(player.id)}
+                    >
+                    {player.name}
+                </h2>
                 <p>
                     {player.team}
                     <span className={`position-badge ${player.position.toLowerCase()}`}>
