@@ -45,3 +45,23 @@ def get_players(position=None, team=None):
     connection.close()
 
     return players
+
+@app.get("/players/{player_id}")
+def get_player(player_id: str):
+    connection = get_connection()
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    cursor.execute(
+        "SELECT * FROM players WHERE id = ?",
+        (player_id,)
+    )
+
+    player = cursor.fetchone()
+
+    connection.close()
+
+    if player is None:
+        return {"error": "Player not found"}
+
+    return dict(player)
