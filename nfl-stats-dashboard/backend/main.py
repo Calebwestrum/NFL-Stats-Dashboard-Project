@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import json
+from backend.database import get_connection
+import sqlite3
 
 app = FastAPI()
 
@@ -18,19 +20,28 @@ def root():
 
 @app.get("/players")
 def get_players(position=None, team=None):
-    with open("src/data/processed_players.json", "r") as file:
-        players = json.load(file)
+    connection = get_connection()
+    connection.row_factory = sqlite3.Row
+    cursor = connection.cursor()
+
+    query = "SELECT * FROM players WHERE 1=1"
+    parameters = []
 
     if position:
-        players = [
-            player for player in players
-            if player["position"] == position
-        ]
+        query += " AND position = ?"
+        parameters.append(position)
 
     if team:
-        players = [
-            player for player in players
-            if player["team"] == team
-        ]
+        query += " AND team = ?"
+        parameters.append(team)
+
+    cursor.execute(query, parameters)
+
+    players = [
+        dict(row)
+        for row in cursor.fetchall()
+    ]
+
+    connection.close()
 
     return players
