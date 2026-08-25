@@ -132,17 +132,53 @@ function App(){
       <h1>NFL Stats Dashboard</h1>
 
       {selectedPlayer && (
+      <div className="modal-overlay">
         <section className="selected-player">
+          <button
+            className="close-button"
+            onClick={() => setSelectedPlayer(null)}
+          >
+            X
+          </button>
+
           <h2>{selectedPlayer.name}</h2>
+
           <p>
             {selectedPlayer.team} - {selectedPlayer.position}
           </p>
-          <p>Passing Yards: {selectedPlayer.passingYards}</p>
-          <p>Rushing Yards: {selectedPlayer.rushingYards}</p>
-          <p>Receiving Yards: {selectedPlayer.receivingYards}</p>
-          <p>Total Touchdowns: {selectedPlayer.totalTouchdowns}</p>
+
+          <div className="modal-stats">
+            {selectedPlayer.passingYards > 0 && (
+              <p>Passing Yards: {selectedPlayer.passingYards}</p>
+            )}
+
+            {selectedPlayer.passingTouchdowns > 0 && (
+              <p>Passing TDs: {selectedPlayer.passingTouchdowns}</p>
+            )}
+
+            {selectedPlayer.interceptions > 0 && (
+              <p>Interceptions: {selectedPlayer.interceptions}</p>
+            )}
+
+            {selectedPlayer.rushingYards > 0 && (
+              <p>Rushing Yards: {selectedPlayer.rushingYards}</p>
+            )}
+
+            {selectedPlayer.rushingTouchdowns > 0 && (
+              <p>Rushing TDs: {selectedPlayer.rushingTouchdowns}</p>
+            )}
+
+            {selectedPlayer.receivingYards > 0 && (
+              <p>Receiving Yards: {selectedPlayer.receivingYards}</p>
+            )}
+
+            {selectedPlayer.receivingTouchdowns > 0 && (
+              <p>Receiving TDs: {selectedPlayer.receivingTouchdowns}</p>
+            )}
+          </div>
         </section>
-      )}
+      </div>  
+    )}
 
       {loading && <p>Loading players...</p>}
 
