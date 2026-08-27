@@ -40,6 +40,7 @@ function App(){
   };
   const [players, setPlayers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [position, setPosition] = useState("All");
   const [team, setTeam] = useState("All");
@@ -66,6 +67,7 @@ function App(){
     })
     .catch((error) => {
       console.error("Error fetching players:", error);
+      setError("Unable to load players. Please make sure the API is running.");
       setLoading(false);
     });
 }, [position, team]);
@@ -181,6 +183,7 @@ function App(){
     )}
 
       {loading && <p>Loading players...</p>}
+      {error && <p>{error}</p>}
 
       <div className="filters">
 
