@@ -60,7 +60,13 @@ function App(){
   }
 
   fetch(`http://127.0.0.1:8000/players?${params.toString()}`)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Failed to fetch players");
+      }
+
+      return response.json();
+    })
     .then((data) => {
       setPlayers(data);
       setLoading(false);
@@ -134,8 +140,8 @@ function App(){
       <h1>NFL Stats Dashboard</h1>
 
       {selectedPlayer && (
-      <div className="modal-overlay">
-        <section className="selected-player">
+      <div className="modal-overlay" onClick={() => setSelectedPlayer(null)}>
+        <section className="selected-player" onClick={(event) => event.stopPropagation()}>
           <button
             className="close-button"
             onClick={() => setSelectedPlayer(null)}
@@ -151,31 +157,52 @@ function App(){
 
           <div className="modal-stats">
             {selectedPlayer.passingYards > 0 && (
-              <p>Passing Yards: {selectedPlayer.passingYards}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.passingYards.toLocaleString()}</h3>
+                <p>Passing Yards</p>
+              </div>
             )}
 
             {selectedPlayer.passingTouchdowns > 0 && (
-              <p>Passing TDs: {selectedPlayer.passingTouchdowns}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.passingTouchdowns}</h3>
+                <p>Passing TDs</p>
+              </div>
             )}
 
             {selectedPlayer.interceptions > 0 && (
-              <p>Interceptions: {selectedPlayer.interceptions}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.interceptions}</h3>
+                <p>Interceptions</p>
+              </div>
             )}
 
             {selectedPlayer.rushingYards > 0 && (
-              <p>Rushing Yards: {selectedPlayer.rushingYards}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.rushingYards.toLocaleString()}</h3>
+                <p>Rushing Yards</p>
+              </div>
             )}
 
             {selectedPlayer.rushingTouchdowns > 0 && (
-              <p>Rushing TDs: {selectedPlayer.rushingTouchdowns}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.rushingTouchdowns}</h3>
+                <p>Rushing TDs</p>
+              </div>
             )}
 
             {selectedPlayer.receivingYards > 0 && (
-              <p>Receiving Yards: {selectedPlayer.receivingYards}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.receivingYards.toLocaleString()}</h3>
+                <p>Receiving Yards</p>
+              </div>
             )}
 
             {selectedPlayer.receivingTouchdowns > 0 && (
-              <p>Receiving TDs: {selectedPlayer.receivingTouchdowns}</p>
+              <div className="stat-box">
+                <h3>{selectedPlayer.receivingTouchdowns}</h3>
+                <p>Receiving TDs</p>
+              </div>
             )}
           </div>
         </section>
